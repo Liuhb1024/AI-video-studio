@@ -1,0 +1,105 @@
+<h2>6 个开源 AI 短漫剧系统：可迁移设计雷达</h2>
+<p class="subtitle">不是照搬代码，而是提炼“生产系统设计点”，迁移到 AI 英歌漫剧生产工作台。</p>
+
+<div class="cards">
+  <div class="card">
+    <div class="card-body">
+      <h3>LumenX</h3>
+      <p>最值得学：清晰 SOP。</p>
+      <ul>
+        <li>资产提取 → 风格定调 → 资产生成 → 分镜脚本 → 分镜图 → 分镜视频</li>
+        <li>角色先生成全身图，再生成三视图/头像特写</li>
+        <li>每个分镜可选择角色、场景、道具参考图</li>
+        <li>视频阶段支持多 batch 抽卡和最终选择</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>Toonflow</h3>
+      <p>最值得学：Agent 分层和阶段质量门。</p>
+      <ul>
+        <li>决策层 / 执行层 / 监督层</li>
+        <li>六阶段流水线：衍生资产 → 资产生成 → 导演规划 → 分镜表 → 面板 → 分镜图</li>
+        <li>导演规划、分镜表需要审核</li>
+        <li>只允许使用资产库真实存在资产</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>LocalMiniDrama</h3>
+      <p>最值得学：本地生产体验和断点补全。</p>
+      <ul>
+        <li>一键生成 + 补全并生成</li>
+        <li>失败自动重试</li>
+        <li>实时进度 + 错误日志</li>
+        <li>经典分镜 / 全能模式，支持 @图片1 多参考编排</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>Huobao Drama</h3>
+      <p>最值得学：Agent Skill 文件化和分镜字段规范。</p>
+      <ul>
+        <li>script_rewriter / extractor / storyboard_breaker / voice_assigner / grid_prompt_generator</li>
+        <li>分镜要求 image_prompt / video_prompt / bgm / sound effect</li>
+        <li>video_prompt 按 0-3 秒、3-6 秒分段</li>
+        <li>宫格图提示词要求 exactly N panels，防漏格/合格</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>waoowaoo</h3>
+      <p>最值得学：prompt 资产分区。</p>
+      <ul>
+        <li>lib/prompts 下有 character-reference / novel-promotion / skills</li>
+        <li>提示词不是散写在代码里，而是作为生产资产组织</li>
+        <li>适合我们后面做“提示词模板库”</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-body">
+      <h3>FastMovieAI</h3>
+      <p>最值得学：平台化外围能力。</p>
+      <ul>
+        <li>用户、积分、支付、插件、WebSocket 推送</li>
+        <li>对 MVP 暂时不重要</li>
+        <li>但任务进度推送和插件式模型配置可后置吸收</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<h3>迁移到我们系统的优先级</h3>
+<div class="options">
+  <div class="option" data-choice="p0" onclick="toggleSelect(this)">
+    <div class="letter">P0</div>
+    <div class="content">
+      <h3>任务流 + 断点补全 + 可追溯</h3>
+      <p>角色生图任务流先做成“可恢复、可重试、可追踪”。这是 LocalMiniDrama + LumenX 的共同强项。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="p1" onclick="toggleSelect(this)">
+    <div class="letter">P1</div>
+    <div class="content">
+      <h3>生产 Skill / Prompt 模板化</h3>
+      <p>借鉴 Toonflow / Huobao / waoowaoo，把剧本、分镜、角色图、宫格图、视频提示词全部变成可编辑模板。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="p2" onclick="toggleSelect(this)">
+    <div class="letter">P2</div>
+    <div class="content">
+      <h3>监督层质量门</h3>
+      <p>导演规划、分镜表、关键帧采纳前加入 AI 检查，但先别过早复杂化。</p>
+    </div>
+  </div>
+</div>

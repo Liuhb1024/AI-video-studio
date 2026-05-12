@@ -1,0 +1,87 @@
+export type Character = {
+  id: string;
+  name: string;
+  alias: string | null;
+  rank: string | null;
+  star: string | null;
+  origin: string | null;
+  ip_name: string | null;
+  role_type: string | null;
+  bio: string | null;
+  liangshan_role: string | null;
+  weapons: string | null;
+  personality_tags: string | null;
+  internal_conflict: string | null;
+  life_events: string | null;
+  audience_hook: string | null;
+  target_audience: string | null;
+  yingge_role: string | null;
+  facepaint_main_color: string | null;
+  color_symbolism: string | null;
+  facepaint_patterns: string | null;
+  source_color_clues: string | null;
+  visual_tone_keywords: string | null;
+  positive_prompt_terms: string | null;
+  negative_prompt_terms: string | null;
+  narrative_origin: string | null;
+  relationship_map: string | null;
+  product_tone: string | null;
+  blessing_meaning: string | null;
+  appearance: string | null;
+  costume: string | null;
+  weapon: string | null;
+  visual_keywords: string | null;
+  negative_keywords: string | null;
+  image_consistency_prompt: string | null;
+  video_consistency_prompt: string | null;
+  three_view_prompt: string | null;
+  negative_prompt: string | null;
+  reference_asset_ids: string[];
+  reference_asset_id: string | null;
+  source: string;
+  source_row: number | null;
+  status: string;
+};
+
+export type CharacterImportResult = {
+  imported_count: number;
+  updated_count: number;
+  skipped_count: number;
+};
+
+export type CharacterListResult = {
+  items: Character[];
+  total: number;
+  page: number;
+  page_size: number;
+};
+
+export type CharacterReferenceAsset = {
+  id: string;
+  filename: string;
+  object_key: string;
+  asset_type: string;
+  project_id: string | null;
+  shot_id: string | null;
+  character_id: string | null;
+  mime_type: string | null;
+  size_bytes: number | null;
+  provider: string;
+  bucket: string | null;
+  region: string | null;
+  url: string | null;
+  title: string | null;
+  note: string | null;
+  reference_type: string | null;
+  style_board: string | null;
+  asset_origin: string;
+  generation_type: string | null;
+  source_reference_asset_ids: string[];
+  style_template_id: string | null;
+  generate_task_id: string | null;
+  accepted_for_keyframe: boolean;
+  quality_note: string | null;
+  is_primary: boolean;
+  deleted_at: string | null;
+  status: string;
+};

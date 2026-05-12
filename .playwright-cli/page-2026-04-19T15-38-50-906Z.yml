@@ -1,0 +1,302 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e7]: Yingge AI Studio
+          - generic [ref=e8]: 英歌片场
+          - paragraph [ref=e10]: 项目、剧本、分镜、生成与成片归档的统一生产桌。
+        - navigation [ref=e11]:
+          - link "工作台 制作总控与协作入口 工作台" [ref=e12] [cursor=pointer]:
+            - /url: /workbench
+            - generic [ref=e13]:
+              - generic [ref=e14]: 工作台
+              - generic [ref=e15]: 制作总控与协作入口
+            - generic [ref=e16]: 工作台
+          - link "项目 项目集、进度和分组 项目" [ref=e17] [cursor=pointer]:
+            - /url: /projects
+            - generic [ref=e18]:
+              - generic [ref=e19]: 项目
+              - generic [ref=e20]: 项目集、进度和分组
+            - generic [ref=e21]: 项目
+          - link "数据看板 生产状态、产能和风险 看板" [ref=e22] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e23]:
+              - generic [ref=e24]: 数据看板
+              - generic [ref=e25]: 生产状态、产能和风险
+            - generic [ref=e26]: 看板
+          - link "设置 团队、权限、工作流 设置" [ref=e27] [cursor=pointer]:
+            - /url: /settings
+            - generic [ref=e28]:
+              - generic [ref=e29]: 设置
+              - generic [ref=e30]: 团队、权限、工作流
+            - generic [ref=e31]: 设置
+        - generic [ref=e32]:
+          - generic [ref=e33]: Current Mode
+          - generic [ref=e34]: 分镜驱动生产
+          - paragraph [ref=e35]: 先锁镜头，再沉淀角色、提示词、素材与成本记录。
+    - generic [ref=e36]:
+      - banner [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: Production Command Table
+              - heading "AI 英歌漫剧生产工作台" [level=1] [ref=e42]
+              - paragraph [ref=e43]: 像一张导演桌：剧本在左，分镜在中，生成任务和素材回收在右。
+            - generic [ref=e44]:
+              - generic [ref=e45]: 生产就绪
+              - generic [ref=e46]: 10 个模块已接入
+          - generic [ref=e47]:
+            - generic [ref=e48]: 项目统筹
+            - generic [ref=e49]: 项目文件夹
+            - generic [ref=e50]: 分镜驱动
+            - generic [ref=e51]: 素材沉淀
+            - generic [ref=e52]: 成本复盘
+      - main [ref=e53]:
+        - generic [ref=e55]:
+          - navigation "当前位置" [ref=e56]:
+            - generic [ref=e57]:
+              - link "项目中心" [ref=e58] [cursor=pointer]:
+                - /url: /projects
+              - generic [ref=e59]: /
+            - generic [ref=e60]:
+              - link "项目文件夹" [ref=e61] [cursor=pointer]:
+                - /url: /projects/0ae09444-4d6d-4806-a263-35baef9b7fb7
+              - generic [ref=e62]: /
+            - generic [ref=e64]: 剧本
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: 项目剧本
+              - heading "短视频故事线生成" [level=2] [ref=e69]
+              - paragraph [ref=e70]: 剧本是故事资产核心。这里先把你的灵感扩成完整短视频剧本，再拆出后续可转分镜的场次。
+            - button "返回项目文件夹" [ref=e72] [cursor=pointer]
+          - generic [ref=e73]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: 故事灵感
+              - paragraph [ref=e76]: 输入故事火花，再通过参数约束生成方向。
+              - generic [ref=e77]:
+                - generic [ref=e78]:
+                  - text: 原始想法
+                  - textbox "原始想法" [ref=e80]:
+                    - /placeholder: 例如：一个年轻英歌队员夜里听见祠堂鼓点，发现脸谱在月光下变了表情。
+                - generic [ref=e81]:
+                  - generic [ref=e82]:
+                    - text: 视频时长
+                    - combobox "视频时长" [ref=e84]:
+                      - option "15秒"
+                      - option "30秒"
+                      - option "60秒" [selected]
+                      - option "90秒"
+                      - option "3分钟"
+                  - generic [ref=e85]:
+                    - text: 目标平台
+                    - combobox "目标平台" [ref=e87]:
+                      - option "抖音" [selected]
+                      - option "视频号"
+                      - option "小红书"
+                      - option "B站"
+                      - option "快手"
+                      - option "通用"
+                - generic [ref=e88]:
+                  - text: 画面比例
+                  - generic [ref=e90]:
+                    - button "画面比例 16:9 横版 3:2 横版 4:3 横版 1:1 方版 3:4 竖版 2:3 竖版 9:16 竖版" [ref=e91] [cursor=pointer]:
+                      - generic [ref=e93]: 21:9
+                      - generic [ref=e94]: 横版
+                    - button "16:9 横版" [ref=e95] [cursor=pointer]:
+                      - generic [ref=e97]: 16:9
+                      - generic [ref=e98]: 横版
+                    - button "3:2 横版" [ref=e99] [cursor=pointer]:
+                      - generic [ref=e101]: 3:2
+                      - generic [ref=e102]: 横版
+                    - button "4:3 横版" [ref=e103] [cursor=pointer]:
+                      - generic [ref=e105]: 4:3
+                      - generic [ref=e106]: 横版
+                    - button "1:1 方版" [ref=e107] [cursor=pointer]:
+                      - generic [ref=e109]: 1:1
+                      - generic [ref=e110]: 方版
+                    - button "3:4 竖版" [ref=e111] [cursor=pointer]:
+                      - generic [ref=e113]: 3:4
+                      - generic [ref=e114]: 竖版
+                    - button "2:3 竖版" [ref=e115] [cursor=pointer]:
+                      - generic [ref=e117]: 2:3
+                      - generic [ref=e118]: 竖版
+                    - button "9:16 竖版" [ref=e119] [cursor=pointer]:
+                      - generic [ref=e121]: 9:16
+                      - generic [ref=e122]: 竖版
+                - generic [ref=e123]:
+                  - generic [ref=e124]:
+                    - text: 故事结构
+                    - combobox "故事结构" [ref=e126]:
+                      - option "短视频强钩子" [selected]
+                      - option "三段式"
+                      - option "四段反转"
+                      - option "起承转合"
+                  - generic [ref=e127]:
+                    - text: 类型风格
+                    - combobox "类型风格" [ref=e129]:
+                      - option "民俗奇幻" [selected]
+                      - option "热血燃向"
+                      - option "悬疑惊悚"
+                      - option "英雄成长"
+                      - option "喜剧反差"
+                      - option "悲壮史诗"
+                  - generic [ref=e130]:
+                    - text: 开头方式
+                    - combobox "开头方式" [ref=e132]:
+                      - option "悬念开头" [selected]
+                      - option "动作开头"
+                      - option "冲突开头"
+                      - option "旁白开头"
+                      - option "视觉奇观开头"
+                  - generic [ref=e133]:
+                    - text: 结尾方式
+                    - combobox "结尾方式" [ref=e135]:
+                      - option "完整闭环"
+                      - option "反转结尾"
+                      - option "悬念留钩子" [selected]
+                      - option "情绪升华"
+                      - option "系列待续"
+                  - generic [ref=e136]:
+                    - text: 情绪基调
+                    - combobox "情绪基调" [ref=e138]:
+                      - option "燃"
+                      - option "神秘" [selected]
+                      - option "压迫"
+                      - option "热闹"
+                      - option "悲壮"
+                      - option "温情"
+                      - option "诡谲"
+                  - generic [ref=e139]:
+                    - text: 英歌强度
+                    - combobox "英歌强度" [ref=e141]:
+                      - option "轻"
+                      - option "中" [selected]
+                      - option "重"
+                - generic [ref=e142]:
+                  - generic [ref=e143]:
+                    - text: 对白密度
+                    - combobox "对白密度" [ref=e145]:
+                      - option "少对白"
+                      - option "标准" [selected]
+                      - option "多对白"
+                  - generic [ref=e146]:
+                    - text: 动作密度
+                    - combobox "动作密度" [ref=e148]:
+                      - option "低"
+                      - option "中"
+                      - option "高" [selected]
+                  - generic [ref=e149]:
+                    - text: 旁白比例
+                    - combobox "旁白比例" [ref=e151]:
+                      - option "无旁白"
+                      - option "少量旁白" [selected]
+                      - option "旁白驱动"
+                - generic [ref=e152]:
+                  - text: 文化表达
+                  - combobox "文化表达" [ref=e154]:
+                    - option "自然融入"
+                    - option "强文化展示"
+                    - option "神秘化表达"
+                    - option "热血仪式感" [selected]
+                    - option "现代潮流化"
+                - generic [ref=e155]:
+                  - text: 传统/现代融合
+                  - combobox "传统/现代融合" [ref=e157]:
+                    - option "传统"
+                    - option "传统为主，少量现代"
+                    - option "现代场景中的传统元素" [selected]
+                    - option "赛博/潮流重构"
+                - generic [ref=e158]:
+                  - text: 视觉符号
+                  - generic [ref=e160]:
+                    - button "视觉符号 双槌 鼓点 队列 祠堂 潮汕街巷 红黑服饰 仪式感动作" [ref=e161] [cursor=pointer]: 脸谱
+                    - button "双槌" [ref=e162] [cursor=pointer]
+                    - button "鼓点" [ref=e163] [cursor=pointer]
+                    - button "队列" [ref=e164] [cursor=pointer]
+                    - button "祠堂" [ref=e165] [cursor=pointer]
+                    - button "潮汕街巷" [ref=e166] [cursor=pointer]
+                    - button "红黑服饰" [ref=e167] [cursor=pointer]
+                    - button "仪式感动作" [ref=e168] [cursor=pointer]
+                - generic [ref=e169]:
+                  - text: 禁忌处理
+                  - generic [ref=e171]:
+                    - button "禁忌处理 避免文化误读 避免低俗化 避免过度恐怖化" [ref=e172] [cursor=pointer]: 避免戏谑民俗
+                    - button "避免文化误读" [ref=e173] [cursor=pointer]
+                    - button "避免低俗化" [ref=e174] [cursor=pointer]
+                    - button "避免过度恐怖化" [ref=e175] [cursor=pointer]
+              - generic [ref=e176]:
+                - button "生成短视频剧本" [ref=e177] [cursor=pointer]
+                - generic [ref=e178]: 结果会显示在右侧，并保存为剧本版本。
+            - generic [ref=e179]:
+              - generic [ref=e180]:
+                - generic [ref=e181]:
+                  - generic [ref=e182]:
+                    - generic [ref=e183]: 生成结果
+                    - paragraph [ref=e184]: 保存为剧本版本，并同步生成场次草案。
+                  - generic [ref=e185]:
+                    - generic [ref=e186]: v1
+                    - button "进入分镜 →" [ref=e228] [cursor=pointer]
+                - generic [ref=e229]:
+                  - generic [ref=e230]: 林冲雪夜山神庙 - 60秒短视频剧本
+                  - generic [ref=e231]: 《林冲雪夜山神庙》 类型：民俗奇幻 平台：抖音 比例：9:16 时长：60秒 结构：短视频强钩子 一句话梗概： 武松打虎，英歌队少年在潮汕老街夜巡，鼓点引出山神影子 完整剧本： 【3秒钩子】 夜色压低，远处忽然响起祠堂鼓点。年轻英歌队员停在巷口，脸谱在月光里像是眨了一下。 【冲突推进】 他握紧双槌向前，鼓点越来越急，队列影子从墙面掠过。旁白低声说：今晚的英歌，不是给活人看的。 【高能段落】 祠堂门开，红黑服饰的队影排成纵向阵列。主角跟着节奏踏步，脸谱光纹亮起，双槌落下时火星四溅。 【悬念收束】 鼓声骤停，主角发现自己站在队列最前方。镜头推近，他脸上的脸谱，变成了另一个人的表情。 角色列表： 1. 年轻英歌队员：好奇、胆大、被鼓点召唤。 2. 神秘队影：传统仪式感的视觉化存在。 创作约束： 英歌元素强度：中 文化表达：热血仪式感 传统现代融合：现代场景中的传统元素 视觉符号：脸谱、双槌、鼓点、队列、祠堂 禁忌：避免戏谑民俗；避免文化误读；避免低俗化
+                  - button "用这个剧本生成分镜草案 →" [ref=e233] [cursor=pointer]
+              - generic [ref=e190]:
+                - generic [ref=e191]: 场次拆分
+                - paragraph [ref=e192]: 这些场次后续会继续转成分镜卡。
+                - generic [ref=e193]:
+                  - article [ref=e234]:
+                    - generic [ref=e235]:
+                      - generic [ref=e236]: "01"
+                      - generic [ref=e237]: 3秒钩子
+                    - paragraph [ref=e238]: 悬念开头，用鼓点和脸谱异象快速抓住观众。
+                    - paragraph [ref=e239]: 夜色压低，远处忽然响起祠堂鼓点。年轻英歌队员停在巷口，脸谱在月光里像是眨了一下。
+                  - article [ref=e240]:
+                    - generic [ref=e241]:
+                      - generic [ref=e242]: "02"
+                      - generic [ref=e243]: 冲突推进
+                    - paragraph [ref=e244]: 主角被鼓点牵引，现实空间开始出现英歌队影。
+                    - paragraph [ref=e245]: 他握紧双槌向前，鼓点越来越急，队列影子从墙面掠过。旁白低声说：今晚的英歌，不是给活人看的。
+                  - article [ref=e246]:
+                    - generic [ref=e247]:
+                      - generic [ref=e248]: "03"
+                      - generic [ref=e249]: 高能段落
+                    - paragraph [ref=e250]: 动作密度高，强化队列、双槌和仪式感。
+                    - paragraph [ref=e251]: 祠堂门开，红黑服饰的队影排成纵向阵列。主角跟着节奏踏步，脸谱光纹亮起，双槌落下时火星四溅。
+                  - article [ref=e252]:
+                    - generic [ref=e253]:
+                      - generic [ref=e254]: "04"
+                      - generic [ref=e255]: 悬念收束
+                    - paragraph [ref=e256]: 悬念留钩子，保留下一条视频的继续观看动机。
+                    - paragraph [ref=e257]: 鼓声骤停，主角发现自己站在队列最前方。镜头推近，他脸上的脸谱，变成了另一个人的表情。
+              - generic [ref=e197]:
+                - generic [ref=e198]: 历史版本
+                - generic [ref=e199]:
+                  - article [ref=e200]:
+                    - button "林冲雪夜山神庙：英歌觉醒 v3 2026/4/19 22:08:45" [ref=e201] [cursor=pointer]:
+                      - generic [ref=e202]:
+                        - generic [ref=e203]: 林冲雪夜山神庙：英歌觉醒
+                        - generic [ref=e204]: v3
+                      - generic [ref=e205]: 2026/4/19 22:08:45
+                    - generic [ref=e206]:
+                      - button "查看" [ref=e207] [cursor=pointer]
+                      - button "删除" [ref=e208] [cursor=pointer]
+                  - article [ref=e209]:
+                    - button "林冲雪夜：英歌魅影 v2 2026/4/19 22:06:18" [ref=e210] [cursor=pointer]:
+                      - generic [ref=e211]:
+                        - generic [ref=e212]: 林冲雪夜：英歌魅影
+                        - generic [ref=e213]: v2
+                      - generic [ref=e214]: 2026/4/19 22:06:18
+                    - generic [ref=e215]:
+                      - button "查看" [ref=e216] [cursor=pointer]
+                      - button "删除" [ref=e217] [cursor=pointer]
+                  - article [ref=e218]:
+                    - button "林冲雪夜山神庙 - 60秒短视频剧本 v1 2026/4/19 20:43:44" [active] [ref=e219] [cursor=pointer]:
+                      - generic [ref=e220]:
+                        - generic [ref=e221]: 林冲雪夜山神庙 - 60秒短视频剧本
+                        - generic [ref=e222]: v1
+                      - generic [ref=e223]: 2026/4/19 20:43:44
+                    - generic [ref=e224]:
+                      - button "查看" [ref=e225] [cursor=pointer]
+                      - button "删除" [ref=e226] [cursor=pointer]
+  - alert [ref=e227]

@@ -1,0 +1,76 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: Yingge AI Studio
+        - generic [ref=e8]: 英歌片场
+        - paragraph [ref=e10]: 项目、剧本、分镜、生成与成片归档的统一生产桌。
+      - navigation [ref=e11]:
+        - link "工作台 制作总控与协作入口 工作台" [ref=e12] [cursor=pointer]:
+          - /url: /workbench
+          - generic [ref=e13]:
+            - generic [ref=e14]: 工作台
+            - generic [ref=e15]: 制作总控与协作入口
+          - generic [ref=e16]: 工作台
+        - link "项目 项目集、进度和分组 项目" [ref=e17] [cursor=pointer]:
+          - /url: /projects
+          - generic [ref=e18]:
+            - generic [ref=e19]: 项目
+            - generic [ref=e20]: 项目集、进度和分组
+          - generic [ref=e21]: 项目
+        - link "角色中心 人物 IP、脸谱与参考图 角色" [ref=e22] [cursor=pointer]:
+          - /url: /characters
+          - generic [ref=e23]:
+            - generic [ref=e24]: 角色中心
+            - generic [ref=e25]: 人物 IP、脸谱与参考图
+          - generic [ref=e26]: 角色
+        - link "风格模板 全局漫剧风格资产 风格" [ref=e27] [cursor=pointer]:
+          - /url: /style-templates
+          - generic [ref=e28]:
+            - generic [ref=e29]: 风格模板
+            - generic [ref=e30]: 全局漫剧风格资产
+          - generic [ref=e31]: 风格
+        - link "数据看板 生产状态、产能和风险 看板" [ref=e32] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e33]:
+            - generic [ref=e34]: 数据看板
+            - generic [ref=e35]: 生产状态、产能和风险
+          - generic [ref=e36]: 看板
+        - link "设置 团队、权限、工作流 设置" [ref=e37] [cursor=pointer]:
+          - /url: /settings
+          - generic [ref=e38]:
+            - generic [ref=e39]: 设置
+            - generic [ref=e40]: 团队、权限、工作流
+          - generic [ref=e41]: 设置
+      - generic [ref=e42]:
+        - generic [ref=e43]: Current Mode
+        - generic [ref=e44]: 分镜驱动生产
+        - paragraph [ref=e45]: 先锁镜头，再沉淀角色、提示词、素材与成本记录。
+  - generic [ref=e46]:
+    - banner [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: Production Command Table
+            - heading "AI 英歌漫剧生产工作台" [level=1] [ref=e52]
+            - paragraph [ref=e53]: 像一张导演桌：剧本在左，分镜在中，生成任务和素材回收在右。
+          - generic [ref=e54]:
+            - generic [ref=e55]: 生产就绪
+            - generic [ref=e56]: 10 个模块已接入
+        - generic [ref=e57]:
+          - generic [ref=e58]: 项目统筹
+          - generic [ref=e59]: 项目文件夹
+          - generic [ref=e60]: 分镜驱动
+          - generic [ref=e61]: 素材沉淀
+          - generic [ref=e62]: 成本复盘
+    - main [ref=e63]:
+      - generic [ref=e65]:
+        - navigation "当前位置" [ref=e66]:
+          - generic [ref=e67]:
+            - link "角色中心" [ref=e68] [cursor=pointer]:
+              - /url: /characters
+            - generic [ref=e69]: /
+          - generic [ref=e71]: 读取中
+        - generic [ref=e72]:
+          - generic [ref=e73]: 正在读取角色档案...
+          - paragraph [ref=e74]: 角色信息、提示词资产和参考图状态正在加载。

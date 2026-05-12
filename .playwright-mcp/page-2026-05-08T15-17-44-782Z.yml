@@ -1,0 +1,112 @@
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - generic [ref=e7]: Yingge AI Studio
+        - generic [ref=e8]: 英歌片场
+        - paragraph [ref=e10]: 项目、剧本、分镜、生成与成片归档的统一生产桌。
+      - navigation [ref=e11]:
+        - link "工作台 制作总控与协作入口 工作台" [ref=e12] [cursor=pointer]:
+          - /url: /workbench
+          - generic [ref=e13]:
+            - generic [ref=e14]: 工作台
+            - generic [ref=e15]: 制作总控与协作入口
+          - generic [ref=e16]: 工作台
+        - link "项目 项目集、进度和分组 项目" [ref=e17] [cursor=pointer]:
+          - /url: /projects
+          - generic [ref=e18]:
+            - generic [ref=e19]: 项目
+            - generic [ref=e20]: 项目集、进度和分组
+          - generic [ref=e21]: 项目
+        - link "角色中心 人物 IP、脸谱与参考图 角色" [ref=e22] [cursor=pointer]:
+          - /url: /characters
+          - generic [ref=e23]:
+            - generic [ref=e24]: 角色中心
+            - generic [ref=e25]: 人物 IP、脸谱与参考图
+          - generic [ref=e26]: 角色
+        - link "风格模板 全局漫剧风格资产 风格" [ref=e27] [cursor=pointer]:
+          - /url: /style-templates
+          - generic [ref=e28]:
+            - generic [ref=e29]: 风格模板
+            - generic [ref=e30]: 全局漫剧风格资产
+          - generic [ref=e31]: 风格
+        - link "数据看板 生产状态、产能和风险 看板" [ref=e32] [cursor=pointer]:
+          - /url: /dashboard
+          - generic [ref=e33]:
+            - generic [ref=e34]: 数据看板
+            - generic [ref=e35]: 生产状态、产能和风险
+          - generic [ref=e36]: 看板
+        - link "设置 团队、权限、工作流 设置" [ref=e37] [cursor=pointer]:
+          - /url: /settings
+          - generic [ref=e38]:
+            - generic [ref=e39]: 设置
+            - generic [ref=e40]: 团队、权限、工作流
+          - generic [ref=e41]: 设置
+      - generic [ref=e42]:
+        - generic [ref=e43]: Current Mode
+        - generic [ref=e44]: 分镜驱动生产
+        - paragraph [ref=e45]: 先锁镜头，再沉淀角色、提示词、素材与成本记录。
+  - generic [ref=e46]:
+    - banner [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: Production Command Table
+            - heading "AI 英歌漫剧生产工作台" [level=1] [ref=e52]
+            - paragraph [ref=e53]: 像一张导演桌：剧本在左，分镜在中，生成任务和素材回收在右。
+          - generic [ref=e54]:
+            - generic [ref=e55]: 生产就绪
+            - generic [ref=e56]: 10 个模块已接入
+        - generic [ref=e57]:
+          - generic [ref=e58]: 项目统筹
+          - generic [ref=e59]: 项目文件夹
+          - generic [ref=e60]: 分镜驱动
+          - generic [ref=e61]: 素材沉淀
+          - generic [ref=e62]: 成本复盘
+    - main [ref=e63]:
+      - generic [ref=e65]:
+        - navigation "当前位置" [ref=e66]:
+          - generic [ref=e68]: 角色中心
+        - generic [ref=e69]:
+          - generic [ref=e70]:
+            - generic [ref=e71]:
+              - generic [ref=e72]: Character IP Asset Center
+              - heading "角色中心" [level=2] [ref=e73]
+              - paragraph [ref=e74]: 这里不做“大列表堆满”。角色会被分页、搜索、筛选；新增角色先以草稿卡进入资产库，再逐步挂参考图、生图任务和项目引用。
+            - generic [ref=e75]:
+              - button "新增角色" [ref=e76] [cursor=pointer]
+              - button "导入角色圣经" [ref=e77] [cursor=pointer]
+              - button "刷新" [ref=e78] [cursor=pointer]
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: 总角色
+              - generic [ref=e82]: "00"
+              - generic [ref=e83]: 资产库总量
+            - generic [ref=e84]:
+              - generic [ref=e85]: 本页提示词就绪
+              - generic [ref=e86]: "00"
+              - generic [ref=e87]: 生图/三视图草案
+            - generic [ref=e88]:
+              - generic [ref=e89]: 本页脸谱设定
+              - generic [ref=e90]: "00"
+              - generic [ref=e91]: 颜色与纹样资产
+            - generic [ref=e92]:
+              - generic [ref=e93]: 本页参考图
+              - generic [ref=e94]: "00"
+              - generic [ref=e95]: 后续接 COS
+        - generic [ref=e96]:
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - generic [ref=e99]: 人物 IP 卡片墙
+              - paragraph [ref=e100]: 每页 12 张卡。搜索走后端，筛选作用于当前页，后续可扩展成全库高级筛选。
+            - generic [ref=e101]:
+              - textbox "搜索姓名、绰号、脸谱、武器、英歌定位..." [ref=e102]
+              - combobox [ref=e103]:
+                - option "全部角色" [selected]
+                - option "提示词就绪"
+                - option "待补提示词"
+                - option "已有参考图"
+              - button "搜索" [ref=e104] [cursor=pointer]
+          - generic [ref=e105]:
+            - generic [ref=e106]: 正在读取角色中心...
+            - paragraph [ref=e107]: 正在从后端分页加载角色资产。

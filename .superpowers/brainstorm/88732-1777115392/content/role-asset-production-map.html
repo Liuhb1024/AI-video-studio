@@ -1,0 +1,104 @@
+<h2>AI 英歌漫剧生产链路：角色资产如何服务关键帧与视频</h2>
+<p class="subtitle">先看大图：我们不是做散装生图工具，而是在搭“可复用角色 IP 资产 -> 分镜关键帧 -> 视频片段”的生产流水线。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Production Map</div>
+  <div class="mockup-body">
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;">
+      <div style="border:1px solid #a7782d55;border-radius:18px;padding:18px;background:#161915;">
+        <h3>1. 参考输入层</h3>
+        <p>人工确定，不轻易污染。</p>
+        <ul>
+          <li>脸谱单图：角色硬锚点</li>
+          <li>真人妆照四面：服饰/体态/道具</li>
+          <li>角色文字设定：性格/武器/禁忌</li>
+          <li>全局风格模板：画风约束</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #57b9a655;border-radius:18px;padding:18px;background:#121b18;">
+        <h3>2. 角色生图任务层</h3>
+        <p>一次生成 = 一条可追溯任务。</p>
+        <ul>
+          <li>生成类型：三视图/四视图/重绘</li>
+          <li>模型：Seedream / nano banana / gpt-image</li>
+          <li>输入：参考图 + 风格模板 + prompt</li>
+          <li>输出：任务状态 + 结果图</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #8aa7ff55;border-radius:18px;padding:18px;background:#131722;">
+        <h3>3. 生成资产区</h3>
+        <p>AI 结果先隔离存放。</p>
+        <ul>
+          <li>三视图 / 四视图</li>
+          <li>风格转换图</li>
+          <li>表情表 / 动作姿态</li>
+          <li>服饰拆解 / 武器道具</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;margin:18px 0;color:#d8c9aa;">↓ 人工挑选，避免劣质图进入生产主链路</div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;">
+      <div style="border:1px solid #ffd16666;border-radius:18px;padding:18px;background:#211b10;">
+        <h3>4. 已采纳资产</h3>
+        <p>真正可复用的角色视觉标准。</p>
+        <ul>
+          <li>可用于关键帧</li>
+          <li>角色标准图</li>
+          <li>风格基准图</li>
+          <li>质量备注 / 版本</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #ef476f66;border-radius:18px;padding:18px;background:#211219;">
+        <h3>5. 分镜关键帧</h3>
+        <p>分镜卡调用已采纳资产。</p>
+        <ul>
+          <li>镜头描述 + 景别 + 构图</li>
+          <li>角色资产 + 风格模板</li>
+          <li>生成关键帧图片</li>
+          <li>多版本对比</li>
+        </ul>
+      </div>
+
+      <div style="border:1px solid #06d6a066;border-radius:18px;padding:18px;background:#102019;">
+        <h3>6. 视频片段</h3>
+        <p>关键帧驱动生视频。</p>
+        <ul>
+          <li>关键帧 + 运镜</li>
+          <li>动作节奏 + 时长</li>
+          <li>视频模型任务</li>
+          <li>最佳版本归档</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>当前下一步建议</h3>
+<div class="options">
+  <div class="option" data-choice="task-flow" onclick="toggleSelect(this)">
+    <div class="letter">A</div>
+    <div class="content">
+      <h3>先做角色生图任务流</h3>
+      <p>推荐。先让“发起生成”变成可追溯任务，模型先 mock，后续再接真实模型。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="style-ai" onclick="toggleSelect(this)">
+    <div class="letter">B</div>
+    <div class="content">
+      <h3>先做风格 AI 识别</h3>
+      <p>让风格模板更聪明，但暂时还不能把角色图生产跑起来。</p>
+    </div>
+  </div>
+  <div class="option" data-choice="acceptance" onclick="toggleSelect(this)">
+    <div class="letter">C</div>
+    <div class="content">
+      <h3>先做采纳机制</h3>
+      <p>适合已有很多生成图时做；现在没有真实任务流，稍微早一点。</p>
+    </div>
+  </div>
+</div>

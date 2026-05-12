@@ -1,0 +1,2 @@
+{"type":"object","required":["prompt","negative_prompt"],"properties":{"prompt":{"type":"string"},"negative_prompt":{"type":"string"}}}
+

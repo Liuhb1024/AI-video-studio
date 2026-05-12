@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: ai-video-studio-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ai_video_studio
+      POSTGRES_USER: ai_video_studio
+      POSTGRES_PASSWORD: ai_video_studio
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai_video_studio -d ai_video_studio"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  postgres_data:

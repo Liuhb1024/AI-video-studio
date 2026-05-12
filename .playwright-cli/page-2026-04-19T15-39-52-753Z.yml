@@ -1,0 +1,73 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - complementary [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e7]: Yingge AI Studio
+          - generic [ref=e8]: 英歌片场
+          - paragraph [ref=e10]: 项目、剧本、分镜、生成与成片归档的统一生产桌。
+        - navigation [ref=e11]:
+          - link "工作台 制作总控与协作入口 工作台" [ref=e12] [cursor=pointer]:
+            - /url: /workbench
+            - generic [ref=e13]:
+              - generic [ref=e14]: 工作台
+              - generic [ref=e15]: 制作总控与协作入口
+            - generic [ref=e16]: 工作台
+          - link "项目 项目集、进度和分组 项目" [ref=e17] [cursor=pointer]:
+            - /url: /projects
+            - generic [ref=e18]:
+              - generic [ref=e19]: 项目
+              - generic [ref=e20]: 项目集、进度和分组
+            - generic [ref=e21]: 项目
+          - link "数据看板 生产状态、产能和风险 看板" [ref=e22] [cursor=pointer]:
+            - /url: /dashboard
+            - generic [ref=e23]:
+              - generic [ref=e24]: 数据看板
+              - generic [ref=e25]: 生产状态、产能和风险
+            - generic [ref=e26]: 看板
+          - link "设置 团队、权限、工作流 设置" [ref=e27] [cursor=pointer]:
+            - /url: /settings
+            - generic [ref=e28]:
+              - generic [ref=e29]: 设置
+              - generic [ref=e30]: 团队、权限、工作流
+            - generic [ref=e31]: 设置
+        - generic [ref=e32]:
+          - generic [ref=e33]: Current Mode
+          - generic [ref=e34]: 分镜驱动生产
+          - paragraph [ref=e35]: 先锁镜头，再沉淀角色、提示词、素材与成本记录。
+    - generic [ref=e36]:
+      - banner [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e40]:
+              - generic [ref=e41]: Production Command Table
+              - heading "AI 英歌漫剧生产工作台" [level=1] [ref=e42]
+              - paragraph [ref=e43]: 像一张导演桌：剧本在左，分镜在中，生成任务和素材回收在右。
+            - generic [ref=e44]:
+              - generic [ref=e45]: 生产就绪
+              - generic [ref=e46]: 10 个模块已接入
+          - generic [ref=e47]:
+            - generic [ref=e48]: 项目统筹
+            - generic [ref=e49]: 项目文件夹
+            - generic [ref=e50]: 分镜驱动
+            - generic [ref=e51]: 素材沉淀
+            - generic [ref=e52]: 成本复盘
+      - main [ref=e53]:
+        - generic [ref=e258]:
+          - navigation "当前位置" [ref=e259]:
+            - generic [ref=e260]:
+              - link "项目中心" [ref=e261] [cursor=pointer]:
+                - /url: /projects
+              - generic [ref=e262]: /
+            - generic [ref=e263]:
+              - link "项目文件夹" [ref=e264] [cursor=pointer]:
+                - /url: /projects/0ae09444-4d6d-4806-a263-35baef9b7fb7
+              - generic [ref=e265]: /
+            - generic [ref=e267]: 分镜
+          - generic [ref=e269]:
+            - generic [ref=e270]:
+              - generic [ref=e271]: 项目内部模块
+              - heading "分镜" [level=2] [ref=e272]
+              - paragraph [ref=e273]: 已接收剧本 f03c7b2a-5bbc-464f-9cc6-5c58558e4c07，下一轮会从这个剧本的时间轴场次生成分镜卡。
+            - button "返回项目文件夹" [ref=e275] [cursor=pointer]
+  - alert [ref=e227]

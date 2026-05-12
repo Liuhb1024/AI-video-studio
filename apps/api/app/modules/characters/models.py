@@ -1,0 +1,50 @@
+from sqlalchemy import Integer, JSON, Text
+from sqlalchemy.orm import Mapped, mapped_column
+
+from app.db.base import Base, IDMixin, TimestampMixin
+
+
+class Character(Base, IDMixin, TimestampMixin):
+    __tablename__ = "characters"
+
+    name: Mapped[str] = mapped_column(Text, nullable=False)
+    alias: Mapped[str | None] = mapped_column(Text, nullable=True)
+    rank: Mapped[str | None] = mapped_column(Text, nullable=True)
+    star: Mapped[str | None] = mapped_column(Text, nullable=True)
+    origin: Mapped[str | None] = mapped_column(Text, nullable=True)
+    ip_name: Mapped[str | None] = mapped_column(Text, nullable=True)
+    role_type: Mapped[str | None] = mapped_column(Text, nullable=True)
+    bio: Mapped[str | None] = mapped_column(Text, nullable=True)
+    liangshan_role: Mapped[str | None] = mapped_column(Text, nullable=True)
+    weapons: Mapped[str | None] = mapped_column(Text, nullable=True)
+    personality_tags: Mapped[str | None] = mapped_column(Text, nullable=True)
+    internal_conflict: Mapped[str | None] = mapped_column(Text, nullable=True)
+    life_events: Mapped[str | None] = mapped_column(Text, nullable=True)
+    audience_hook: Mapped[str | None] = mapped_column(Text, nullable=True)
+    target_audience: Mapped[str | None] = mapped_column(Text, nullable=True)
+    yingge_role: Mapped[str | None] = mapped_column(Text, nullable=True)
+    facepaint_main_color: Mapped[str | None] = mapped_column(Text, nullable=True)
+    color_symbolism: Mapped[str | None] = mapped_column(Text, nullable=True)
+    facepaint_patterns: Mapped[str | None] = mapped_column(Text, nullable=True)
+    source_color_clues: Mapped[str | None] = mapped_column(Text, nullable=True)
+    visual_tone_keywords: Mapped[str | None] = mapped_column(Text, nullable=True)
+    positive_prompt_terms: Mapped[str | None] = mapped_column(Text, nullable=True)
+    negative_prompt_terms: Mapped[str | None] = mapped_column(Text, nullable=True)
+    narrative_origin: Mapped[str | None] = mapped_column(Text, nullable=True)
+    relationship_map: Mapped[str | None] = mapped_column(Text, nullable=True)
+    product_tone: Mapped[str | None] = mapped_column(Text, nullable=True)
+    blessing_meaning: Mapped[str | None] = mapped_column(Text, nullable=True)
+    appearance: Mapped[str | None] = mapped_column(Text, nullable=True)
+    costume: Mapped[str | None] = mapped_column(Text, nullable=True)
+    weapon: Mapped[str | None] = mapped_column(Text, nullable=True)
+    visual_keywords: Mapped[str | None] = mapped_column(Text, nullable=True)
+    negative_keywords: Mapped[str | None] = mapped_column(Text, nullable=True)
+    image_consistency_prompt: Mapped[str | None] = mapped_column(Text, nullable=True)
+    video_consistency_prompt: Mapped[str | None] = mapped_column(Text, nullable=True)
+    three_view_prompt: Mapped[str | None] = mapped_column(Text, nullable=True)
+    negative_prompt: Mapped[str | None] = mapped_column(Text, nullable=True)
+    reference_asset_ids: Mapped[list[str]] = mapped_column(JSON, default=list)
+    reference_asset_id: Mapped[str | None] = mapped_column(Text, nullable=True)
+    source: Mapped[str] = mapped_column(Text, default="manual")
+    source_row: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    status: Mapped[str] = mapped_column(Text, default="draft")
