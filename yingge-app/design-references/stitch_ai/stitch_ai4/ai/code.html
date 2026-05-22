@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI 英歌剧场 - 剧本工作室</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Hanken Grotesk', 'sans-serif'],
+          },
+          colors: {
+            primary: '#b22222', // Cinnabar Red
+            surface: '#131313',
+            'surface-dim': '#0e0e0e',
+            'surface-bright': '#393939',
+            'surface-container': '#1c1b1b',
+            accent: '#b8860b', // Muted Gold
+          },
+          borderRadius: {
+            'custom': '4px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">body {
+    background-color: #0e0e0e;
+    background-image: linear-gradient(rgba(19, 19, 19, 0.8), rgba(19, 19, 19, 0.8)), url(https://lh3.googleusercontent.com/aida-public/AB6AXuByphXZ-Vedg8YP7HN-ZXijIMUzY6_QGK6Sxim1KylZAb-ZpzpQdg__uCcDlTYEMMXkW9bZDtKQN9zeEU9iS39dAqH_3umpCq79yNYSR7SDs4iPQFJouOKblH_f45G1Bwe8WyCdIyGjTU_Gg9of6_XaVz8l2T7oZq3skHSyiDwnHEiLYvDI20QYZ1uGL6Fgkpbd5e021H3KWY1nSpmPNMHuL6oW_EM0GZ6wuMCplPbh91Ka8gPucc92bZ_xZjXjG9W1CLvt7G6oq_TQ);
+    background-size: cover;
+    color: #e0e0e0
+    }
+.scrollbar-hide::-webkit-scrollbar {
+    display: none
+    }
+.glass-panel {
+    background: rgba(28, 27, 27, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05)
+    }
+.active-step-border {
+    border-left: 3px solid #b22222
+    }
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block
+    }</style>
+</head>
+<body class="h-screen flex overflow-hidden font-sans">
+<!-- BEGIN: LeftSidebar -->
+<aside class="w-64 border-r border-white/5 flex flex-col glass-panel" data-purpose="main-navigation">
+<div class="p-6 flex items-center space-x-3">
+<div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold italic">AI</div>
+<h1 class="text-lg font-bold tracking-widest text-white">AI英歌剧场</h1>
+</div>
+<div class="px-4 py-2 text-xs font-semibold text-gray-500 uppercase tracking-wider">专业 AI 生产工作台</div>
+<nav class="flex-1 px-2 py-4 space-y-1">
+<a class="flex items-center px-4 py-3 text-gray-400 hover:bg-white/5 rounded-custom transition-all" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        仪表盘
+      </a>
+<a class="flex items-center px-4 py-3 text-gray-400 hover:bg-white/5 rounded-custom transition-all" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        角色圣经
+      </a>
+<a class="flex items-center px-4 py-3 text-white bg-primary/10 active-step-border rounded-custom transition-all" href="#">
+<svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        剧本工作室
+      </a>
+<a class="flex items-center px-4 py-3 text-gray-400 hover:bg-white/5 rounded-custom transition-all" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        生成工作台
+      </a>
+</nav>
+<div class="mt-auto p-4 border-t border-white/5">
+<div class="flex items-center space-x-3 p-2 bg-white/5 rounded-custom">
+<img alt="Profile" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ2AR2RiCdqDtidw23WT8wYDVgMcTLGL_FrTNUIgWEbyV3j67j1DmGrNvVcCIWzBvr_NDfpc5AOVd5TY-zRB53xlUrMX6523wO95n1vdtZWz8OMWBdUlBAhPdp6vg7pIVTT0rZRk8fqYT8wCAY48oi-gCZQNBGclvPtTZ5E5vyqjzlcltBk2YO0BmEg4-OQW9GLvJuk5j3MGOAZgOmyLgOpr6GX4F96bcP93UoEmLnvMJkei99xzh3hJW7qfjTJQExKIZurQONfwhn"/>
+<div>
+<div class="text-sm font-medium text-white">陈墨</div>
+<div class="text-xs text-gray-500">制片人 Studio Admin</div>
+</div>
+</div>
+</div>
+</aside>
+<!-- END: LeftSidebar -->
+<main class="flex-1 flex flex-col overflow-hidden">
+<!-- BEGIN: TopBar -->
+<header class="h-16 border-b border-white/5 flex items-center justify-between px-6 glass-panel" data-purpose="header-info">
+<div class="flex items-center space-x-8">
+<button class="flex items-center text-gray-400 hover:text-white transition-colors">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          返回项目列表
+        </button>
+<div class="flex items-center space-x-6">
+<div data-purpose="meta-item">
+<span class="text-gray-500 text-xs block">当前项目</span>
+<span class="text-sm text-white font-medium">武松英歌角色介绍短片</span>
+</div>
+<div data-purpose="meta-item">
+<span class="text-gray-500 text-xs block">角色</span>
+<span class="text-sm text-white font-medium">武松 行者 <span class="text-gray-400 text-xs">▼</span></span>
+</div>
+<div data-purpose="meta-item">
+<span class="text-gray-500 text-xs block">目标平台</span>
+<span class="text-sm text-white font-medium italic">抖音</span>
+</div>
+<div data-purpose="meta-item">
+<span class="text-gray-500 text-xs block">时长</span>
+<span class="text-sm text-white font-medium">45 秒</span>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="px-4 py-2 border border-white/10 rounded-custom text-sm text-gray-300 hover:bg-white/5">保存项目</button>
+<button class="px-4 py-2 bg-primary text-white rounded-custom text-sm font-medium flex items-center">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          进入提示词工作台
+        </button>
+</div>
+</header>
+<!-- END: TopBar -->
+<div class="flex-1 flex overflow-hidden">
+<!-- BEGIN: VerticalProgress -->
+<nav class="w-48 border-r border-white/5 flex flex-col p-6 space-y-8 glass-panel shrink-0" data-purpose="workflow-steps">
+<div class="flex flex-col space-y-8 relative">
+<div class="absolute left-4 top-2 bottom-2 w-px bg-white/10 -z-10"></div>
+<div class="flex items-start space-x-3 opacity-60">
+<div class="w-8 h-8 rounded-full bg-green-900/50 border border-green-500 flex items-center justify-center text-xs text-green-500">✓</div>
+<div>
+<div class="text-xs text-white">选择角色</div>
+<div class="text-[10px] text-gray-500">Select Character</div>
+</div>
+</div>
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs text-white">2</div>
+<div>
+<div class="text-xs text-primary font-bold">生成剧本</div>
+<div class="text-[10px] text-primary/70">Generate Script</div>
+</div>
+</div>
+<div class="flex items-start space-x-3 opacity-50">
+<div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs text-gray-400">3</div>
+<div>
+<div class="text-xs text-white">拆分分镜</div>
+<div class="text-[10px] text-gray-500">Split Storyboard</div>
+</div>
+</div>
+<div class="flex items-start space-x-3 opacity-30">
+<div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-xs text-gray-400">4</div>
+<div>
+<div class="text-xs text-white">确认镜头</div>
+<div class="text-[10px] text-gray-500">Confirm Shots</div>
+</div>
+</div>
+</div>
+<div class="pt-10 space-y-4">
+<h4 class="text-[10px] uppercase text-gray-500 font-bold tracking-widest">剧本信息</h4>
+<div class="space-y-3">
+<div class="flex justify-between text-[11px]"><span class="text-gray-500">目标平台</span><span class="text-gray-300">抖音 / TikTok</span></div>
+<div class="flex justify-between text-[11px]"><span class="text-gray-500">视频时长</span><span class="text-gray-300">45 秒</span></div>
+<div class="flex justify-between text-[11px]"><span class="text-gray-500">叙事语气</span><span class="text-accent">英雄史诗 / 豪迈</span></div>
+<div class="flex justify-between text-[11px]"><span class="text-gray-500">生成版本</span><span class="text-gray-300">v2.1</span></div>
+</div>
+</div>
+</nav>
+<!-- END: VerticalProgress -->
+<!-- BEGIN: Workspace -->
+<div class="flex-1 flex flex-col p-6 space-y-6 overflow-y-auto scrollbar-hide">
+<!-- BEGIN: ScriptEditor -->
+<section class="glass-panel rounded-custom border border-white/5" data-purpose="script-editor-container">
+<div class="px-6 py-4 border-b border-white/5 flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<h3 class="text-sm font-bold text-white">剧本编辑器 <span class="ml-2 text-[10px] bg-green-500/20 text-green-500 px-1.5 py-0.5 rounded">v2.1 已保存</span></h3>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-[10px] px-3 py-1 bg-white/5 border border-white/10 rounded hover:bg-white/10">导入剧本</button>
+<button class="text-[10px] px-3 py-1 bg-white/5 border border-white/10 rounded hover:bg-white/10">重新生成</button>
+</div>
+</div>
+<div class="grid grid-cols-12 gap-0">
+<div class="col-span-8 p-4 space-y-3">
+<!-- Script Lines -->
+<div class="flex items-center space-x-4 text-xs group">
+<span class="w-4 text-gray-600">1</span>
+<div class="flex-1 bg-white/5 border border-transparent group-hover:border-primary/30 p-2 rounded cursor-text">
+                  在水泊梁山的烽烟中，有一人，名震四方，威震八方。
+                </div>
+<span class="text-[10px] text-gray-500 font-mono">[00:00 - 00:05]</span>
+</div>
+<div class="flex items-center space-x-4 text-xs group">
+<span class="w-4 text-gray-600">2</span>
+<div class="flex-1 bg-white/5 border border-transparent group-hover:border-primary/30 p-2 rounded cursor-text">
+                  他，景阳冈上赤手空拳，打虎英雄，天下闻名。
+                </div>
+<span class="text-[10px] text-gray-500 font-mono">[00:05 - 00:10]</span>
+</div>
+<div class="flex items-center space-x-4 text-xs group">
+<span class="w-4 text-gray-600">3</span>
+<div class="flex-1 bg-white/5 border border-transparent group-hover:border-primary/30 p-2 rounded cursor-text">
+                  他，醉打蒋门神，为兄弟出头，快意恩仇。
+                </div>
+<span class="text-[10px] text-gray-500 font-mono">[00:10 - 00:15]</span>
+</div>
+<div class="flex items-center space-x-4 text-xs group">
+<span class="w-4 text-gray-600">4</span>
+<div class="flex-1 bg-white/5 border border-transparent group-hover:border-primary/30 p-2 rounded cursor-text">
+                  他，行者武松，不守常规，不畏强权，忠义双全。
+                </div>
+<span class="text-[10px] text-gray-500 font-mono">[00:15 - 00:25]</span>
+</div>
+<div class="flex items-center space-x-4 text-xs border-t border-white/5 pt-2">
+<button class="text-xs text-gray-500 hover:text-white flex items-center">
+<span class="mr-2 text-lg leading-none">+</span> 点击添加旁白行
+                </button>
+</div>
+</div>
+<!-- Analysis Sidebar -->
+<div class="col-span-4 border-l border-white/5 p-4 bg-black/20">
+<h4 class="text-[10px] uppercase text-gray-500 font-bold mb-3">剧本分析</h4>
+<div class="space-y-4">
+<div class="flex justify-between text-xs"><span class="text-gray-400">字数统计</span><span class="text-white font-mono">112 字</span></div>
+<div class="flex justify-between text-xs"><span class="text-gray-400">预计时长</span><span class="text-green-500 font-mono">45.2 秒</span></div>
+<div class="flex justify-between text-xs"><span class="text-gray-400">镜头建议</span><span class="text-white">6-7 个</span></div>
+<div class="mt-4">
+<span class="text-[10px] text-gray-500 block mb-2">情绪曲线</span>
+<div class="h-16 w-full flex items-end space-x-1">
+<div class="flex-1 bg-primary/20 h-[40%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[60%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-[90%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/60 h-[50%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary/40 h-[70%] rounded-t-sm"></div>
+<div class="flex-1 bg-primary h-[100%] rounded-t-sm"></div>
+</div>
+</div>
+<button class="w-full py-2 bg-white/5 border border-white/10 rounded text-[10px] text-gray-300 hover:bg-white/10">✨ 剧本优化建议 (3)</button>
+</div>
+</div>
+</div>
+</section>
+<!-- END: ScriptEditor -->
+<!-- BEGIN: StoryboardGrid -->
+<section data-purpose="storyboard-timeline">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-sm font-bold text-white flex items-center">
+              分镜脚本 <span class="ml-2 font-normal text-gray-500">(6 镜头)</span>
+</h3>
+<div class="flex space-x-2">
+<button class="text-[10px] px-3 py-1 bg-white/5 border border-white/10 rounded flex items-center hover:bg-white/10">
+<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg> 自动分镜
+              </button>
+<button class="text-[10px] px-3 py-1 bg-white/5 border border-white/10 rounded hover:bg-white/10">镜头建议</button>
+</div>
+</div>
+<div class="grid grid-cols-6 gap-4">
+<!-- Shot 1 -->
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 hover:border-primary/50 transition-all">
+<div class="relative h-48 bg-black">
+<img alt="Shot 1" class="w-full h-full object-cover opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl34M1XAgzVhEhzAre5HyWyG30PmtIu-NS9yDLxRgQMECdUzy2kHL2EHRRD3fhjWTfYwz1hMSO_BqhIADWpuOmqqe60yVaqaSc-ka86JISWcrnxDeULQ8-c0rXdLkIlpJflo4HOrzgtUlvPwEPhjGUkdbfxLHZabkjRRP0lmbdOUIudrT8imOdRFomW161jbLTxx60uqnk6EZUMk_-8tFkzzyGoJ9C8e3Gq5dGXgF6wkPIw9fwvt7IRSPlA-_NoxjT_UjHNi_Xln1c"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 rounded text-[10px] font-mono border border-white/10">1 <span class="text-gray-400 ml-1">00:05</span></div>
+<div class="absolute bottom-2 right-2 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/80 rounded border border-white/20 hover:text-primary"><svg class="w-3 h-3" fill="currentColor" viewbox="0 0 20 20"><path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"></path></svg></button>
+</div>
+</div>
+<div class="p-3 space-y-2">
+<div class="text-[11px] font-bold text-white truncate">水泊风云起</div>
+<div class="text-[10px] text-gray-500 line-clamp-2 leading-relaxed">在水泊梁山的烽烟中，有一人，名震四方...</div>
+<div class="pt-2 grid grid-cols-2 gap-y-1 text-[9px] border-t border-white/5">
+<span class="text-gray-500">画面</span><span class="text-gray-400">烟云飘渺全景</span>
+<span class="text-gray-500">动作</span><span class="text-gray-400">缓慢推进</span>
+<span class="text-gray-500">机位</span><span class="text-gray-400">航拍</span>
+</div>
+<div class="pt-2 flex justify-between items-center">
+<span class="text-[9px] px-1 bg-green-900/30 text-green-500 rounded">● 一致 优秀</span>
+<button class="text-[9px] text-primary hover:underline">已就绪</button>
+</div>
+</div>
+</div>
+<!-- Shot 2 -->
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 hover:border-primary/50 transition-all">
+<div class="relative h-48 bg-black">
+<img alt="Shot 2" class="w-full h-full object-cover opacity-70" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRpIdE6TYrrzPdqGWEGP0at2jhpH2ur40hU2vuGJzr1l9KAdhzj0_qQM19KFQWk6OJb178lrmhr_YzvpUlZbgYu22wMJmQfebBzYLa3AlmOB2cBAgyJjhzWqKxBK_T-Ihhm_HmhvLEw7l4Si3SeRPXUTuqB-1cXoHq5JR24zvH227QUaWptcdgiic8Av6GsQcGGhLwXKk4ofs5xSw4JT476m9VM3Oqa0Io__chkaLzBKfpPp_sRJyYsuK9rN2sgaOy_a89KD7NdDvb"/>
+<div class="absolute top-2 left-2 px-2 py-0.5 bg-black/80 rounded text-[10px] font-mono border border-white/10">2 <span class="text-gray-400 ml-1">00:07</span></div>
+</div>
+<div class="p-3 space-y-2">
+<div class="text-[11px] font-bold text-white truncate">景阳冈打虎</div>
+<div class="text-[10px] text-gray-500 line-clamp-2">他，景阳冈上赤手空拳，打虎英雄，天下闻名。</div>
+<div class="pt-2 grid grid-cols-2 gap-y-1 text-[9px] border-t border-white/5">
+<span class="text-gray-500">画面</span><span class="text-gray-400">赤手与猛虎搏斗</span>
+<span class="text-gray-500">动作</span><span class="text-gray-400">力量爆发</span>
+<span class="text-gray-500">机位</span><span class="text-gray-400">跟拍</span>
+</div>
+<div class="pt-2 flex justify-between items-center">
+<span class="text-[9px] px-1 bg-yellow-900/30 text-yellow-500 rounded">● 一般 优秀</span>
+<button class="text-[9px] text-primary hover:underline">已就绪</button>
+</div>
+</div>
+</div>
+<!-- Shot 3, 4, 5, 6 Placeholders for visual balance -->
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 opacity-80">
+<div class="h-48 bg-black/50 flex items-center justify-center text-gray-600 text-xs">Shot 3</div>
+<div class="p-3 h-24 bg-black/20"></div>
+</div>
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 opacity-80">
+<div class="h-48 bg-black/50 flex items-center justify-center text-gray-600 text-xs">Shot 4</div>
+<div class="p-3 h-24 bg-black/20"></div>
+</div>
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 opacity-80">
+<div class="h-48 bg-black/50 flex items-center justify-center text-gray-600 text-xs">Shot 5</div>
+<div class="p-3 h-24 bg-black/20"></div>
+</div>
+<div class="glass-panel rounded-custom overflow-hidden group border border-white/5 opacity-80">
+<div class="h-48 bg-black/50 flex items-center justify-center text-gray-600 text-xs">Shot 6</div>
+<div class="p-3 h-24 bg-black/20"></div>
+</div>
+</div>
+<div class="mt-8 py-6 border-2 border-dashed border-white/5 rounded-custom flex flex-col items-center justify-center text-gray-500">
+<span class="text-xl mb-1">+</span>
+<span class="text-xs">添加镜头</span>
+<span class="text-[10px] mt-1">建议 5-8 个镜头，当前 6 个镜头，时长 45 秒</span>
+</div>
+</section>
+<!-- END: StoryboardGrid -->
+</div>
+<!-- END: Workspace -->
+<!-- BEGIN: RightPanel -->
+<aside class="w-80 border-l border-white/5 flex flex-col glass-panel" data-purpose="context-inspector">
+<div class="flex-1 overflow-y-auto scrollbar-hide p-6 space-y-8">
+<!-- Character Summary -->
+<div data-purpose="character-context">
+<h4 class="text-[10px] uppercase text-gray-500 font-bold mb-4 tracking-widest">角色与内容上下文</h4>
+<div class="flex space-x-4">
+<img alt="Wu Song Portrait" class="w-24 h-32 rounded border border-white/10 object-cover shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApQ9rXULHng4jO0EEEJsoP0YL39e1aRhKKEQirCyJjlpNiButRBv1IZ3A2DayCUyhQTFgfbUIdnaoBDXjCmTdhu8wCMnF5WPRN28dV5tD8hVHbj-ot71HpWiZIFsYgZYkNUK23DWPavtorluzBb4x00iELEE8_VSn5bxuYsTf3p2GKrYQyHjtacGNFA9HxyFu-iY_IXCWVUTiduwfYQKqXURpVJvx6iI5i8K6EuhSJAPwbWnx0O8XxmmJEgzk7y5poYrVc59eCZOtS"/>
+<div class="flex-1">
+<div class="text-base font-bold text-white">武松 <span class="text-xs font-normal text-gray-500 ml-1">行者</span></div>
+<div class="text-[10px] text-accent mt-1">天伤星 · 第 14 位</div>
+<div class="mt-3 space-y-2">
+<div class="flex items-center text-[10px]">
+<span class="text-gray-500 w-12">脸谱主色</span>
+<div class="flex-1 flex space-x-1">
+<div class="w-3 h-3 bg-red-600 rounded-full"></div>
+<div class="w-3 h-3 bg-black rounded-full"></div>
+</div>
+</div>
+<div class="flex items-center text-[10px]">
+<span class="text-gray-500 w-12">兵器</span>
+<span class="text-gray-300">双节棍</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 flex flex-wrap gap-2">
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-gray-400">勇猛</span>
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-gray-400">果敢</span>
+<span class="px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[10px] text-gray-400">忠义</span>
+</div>
+</div>
+<!-- Prompt Keywords -->
+<div data-purpose="prompt-inspector">
+<h4 class="text-[10px] uppercase text-gray-500 font-bold mb-4 tracking-widest">正向提示词关键词</h4>
+<div class="flex flex-wrap gap-1.5">
+<span class="px-2 py-1 bg-primary/5 border border-primary/20 rounded text-[10px] text-primary/80">Yingge dance</span>
+<span class="px-2 py-1 bg-primary/5 border border-primary/20 rounded text-[10px] text-primary/80">heroic warrior</span>
+<span class="px-2 py-1 bg-primary/5 border border-primary/20 rounded text-[10px] text-primary/80">Chinese opera</span>
+<span class="px-2 py-1 bg-primary/5 border border-primary/20 rounded text-[10px] text-primary/80">face paint</span>
+<span class="px-2 py-1 bg-primary/5 border border-primary/20 rounded text-[10px] text-primary/80">ink wash</span>
+</div>
+<h4 class="text-[10px] uppercase text-gray-500 font-bold mt-6 mb-4 tracking-widest">负向提示词关键词</h4>
+<div class="flex flex-wrap gap-1.5 opacity-60">
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-500">low quality</span>
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-500">cartoon</span>
+<span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] text-gray-500">3d render</span>
+</div>
+</div>
+<!-- Agent Feedbacks -->
+<div class="space-y-4" data-purpose="agent-feedback">
+<div class="p-3 bg-blue-500/5 border border-blue-500/20 rounded">
+<div class="flex items-center text-[11px] text-blue-400 font-bold mb-1">
+<svg class="w-3 h-3 mr-1" fill="currentColor" viewbox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"></path></svg>
+                 ScriptAgent 建议
+               </div>
+<p class="text-[10px] text-gray-400">剧本节奏良好，情绪递进合理。</p>
+</div>
+<div class="p-3 bg-yellow-500/5 border border-yellow-500/20 rounded">
+<div class="flex items-center text-[11px] text-yellow-400 font-bold mb-1">
+<svg class="w-3 h-3 mr-1" fill="currentColor" viewbox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"></path></svg>
+                 StoryboardAgent 建议
+               </div>
+<p class="text-[10px] text-gray-400">镜头运动丰富，建议第4镜头增加远景。</p>
+</div>
+<div class="p-3 bg-red-500/5 border border-red-500/20 rounded">
+<div class="flex items-center text-[11px] text-red-400 font-bold mb-1">
+<svg class="w-3 h-3 mr-1" fill="currentColor" viewbox="0 0 20 20"><path clip-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" fill-rule="evenodd"></path></svg>
+                 CriticAgent 风险提示
+               </div>
+<p class="text-[10px] text-gray-400">第3镜头打斗强度可再提升张力。</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-white/5 space-y-3">
+<button class="w-full py-3 bg-primary text-white rounded-custom text-xs font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-colors">
+            使用此脚本进入提示词工作台
+          </button>
+<button class="w-full py-2 bg-white/5 border border-white/10 rounded-custom text-xs text-gray-400 flex items-center justify-center hover:bg-white/10">
+<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+            导出剧本 &amp; 分镜 (PDF)
+          </button>
+</div>
+</aside>
+<!-- END: RightPanel -->
+</div>
+</main>
+</body></html>

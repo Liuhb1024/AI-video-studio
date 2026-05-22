@@ -1,0 +1,11 @@
+[submodule "references/Toonflow-app"]
+	path = references/Toonflow-app
+	url = https://github.com/HBAI-Ltd/Toonflow-app.git
+
+[submodule "references/huobao-drama"]
+	path = references/huobao-drama
+	url = https://github.com/chatfire-AI/huobao-drama.git
+
+[submodule "references/waoowaoo"]
+	path = references/waoowaoo
+	url = https://github.com/waooAI/waoowaoo.git

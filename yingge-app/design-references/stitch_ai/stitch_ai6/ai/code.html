@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Yingge Drama Studio - Asset Review Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#342800",
+                        "outline-variant": "#5a403e",
+                        "surface-tint": "#ffb4ac",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "on-primary": "#690007",
+                        "surface": "#131313",
+                        "outline": "#aa8986",
+                        "tertiary-container": "#0e6b08",
+                        "secondary-fixed-dim": "#e9c349",
+                        "tertiary": "#82db6f",
+                        "on-error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary": "#ffb4ac",
+                        "on-surface-variant": "#e2beba",
+                        "on-tertiary-fixed-variant": "#005300",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary-container": "#90ea7b",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#393939",
+                        "on-secondary-fixed": "#241a00",
+                        "primary-container": "#b22222",
+                        "surface-dim": "#131313",
+                        "on-error": "#690005",
+                        "surface-container-highest": "#353535",
+                        "primary-fixed": "#ffdad6",
+                        "on-surface": "#e5e2e1",
+                        "on-primary-fixed": "#410003",
+                        "secondary": "#e9c349",
+                        "on-tertiary": "#003a00",
+                        "tertiary-fixed": "#9df888",
+                        "on-primary-container": "#ffc8c2",
+                        "on-background": "#e5e2e1",
+                        "secondary-fixed": "#ffe088",
+                        "on-secondary": "#3c2f00",
+                        "surface-container": "#20201f",
+                        "tertiary-fixed-dim": "#82db6f",
+                        "secondary-container": "#af8d11",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "inverse-primary": "#b52424",
+                        "background": "#131313",
+                        "on-tertiary-fixed": "#002200",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary-fixed-variant": "#92030f",
+                        "surface-variant": "#353535",
+                        "inverse-on-surface": "#313030"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-margin": "32px",
+                        "container-padding": "24px",
+                        "card-gap": "12px",
+                        "unit": "4px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "data-numeric": ["JetBrains Mono"],
+                        "body-base": ["Plus Jakarta Sans"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-sm": ["Plus Jakarta Sans"],
+                        "display-lg": ["Hanken Grotesk"],
+                        "body-sm": ["Plus Jakarta Sans"],
+                        "headline-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "data-numeric": ["14px", {"lineHeight": "1", "fontWeight": "400"}],
+                        "body-base": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-sm": ["18px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "display-lg": ["36px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-sm": ["13px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .ink-wash-bg {
+            background: linear-gradient(135deg, #131313 0%, #1a1a1a 100%);
+            position: relative;
+        }
+        .ink-wash-bg::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 10% 10%, rgba(178, 34, 34, 0.05), transparent 40%);
+            pointer-events: none;
+        }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #2c2c2c; border-radius: 2px; }
+        .active-red-border { border-top: 2px solid #b22222; }
+        .gold-border { border-top: 2px solid #d4af37; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-base overflow-hidden flex h-screen">
+<!-- SideNavBar Shell -->
+<aside class="docked h-screen w-[240px] left-0 top-0 border-r border-outline-variant dark:border-outline-variant flex flex-col h-full py-spacing-section-margin bg-surface shrink-0 z-50">
+<div class="px-6 mb-8">
+<h1 class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface">AI英歌剧场</h1>
+<p class="font-label-caps text-label-caps text-outline opacity-70 tracking-widest mt-1">AI YINGGE DRAMA STUDIO</p>
+</div>
+<nav class="flex-1 space-y-1">
+<div class="text-on-surface-variant px-4 py-3 transition-colors hover:bg-surface-container-highest/50 hover:text-on-surface cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-caps text-label-caps">Dashboard</span>
+</div>
+<div class="text-on-surface-variant px-4 py-3 transition-colors hover:bg-surface-container-highest/50 hover:text-on-surface cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-label-caps text-label-caps">Character Bible</span>
+</div>
+<div class="text-on-surface-variant px-4 py-3 transition-colors hover:bg-surface-container-highest/50 hover:text-on-surface cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+<span class="font-label-caps text-label-caps">Script Studio</span>
+</div>
+<div class="text-on-surface-variant px-4 py-3 transition-colors hover:bg-surface-container-highest/50 hover:text-on-surface cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="movie_filter">movie_filter</span>
+<span class="font-label-caps text-label-caps">Generation Workspace</span>
+</div>
+<!-- ACTIVE NAV -->
+<div class="text-primary border-l-2 border-primary bg-primary-container/10 px-4 py-3 transition-colors flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="analytics" style="font-variation-settings: 'FILL' 1;">analytics</span>
+<span class="font-label-caps text-label-caps">Asset Review</span>
+</div>
+<div class="text-on-surface-variant px-4 py-3 transition-colors hover:bg-surface-container-highest/50 hover:text-on-surface cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-caps text-label-caps">Settings</span>
+</div>
+</nav>
+<div class="mt-auto px-4 space-y-4">
+<div class="bg-surface-container-high rounded p-3 flex items-center gap-3">
+<img alt="Studio Admin" class="w-8 h-8 rounded-full border border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1k3WuWILKtGaRDCnlOceO0tk2TVp22QQBm-_EFPT3KmNM9afG3SoMhdcB14TNOIh3KZFf7qShaZbdqA11j_a9c67SGexTqL1guBfF11Y1Au8SZqyfcKGxwJ9d_ryciH_4nw3Ll2lG6QQx7E9J3x1jhheFcJAJyJUTtiQcGRyJONBHxD4zqdKC9NOwZenImP08P5cs5dVoJSkzmIAiTEtDsW3EmHog6DZgBoBw4pQ_GNEIW20uMS700rhN2hFldeFntcxRepUsbfHK"/>
+<div>
+<p class="font-label-caps text-[10px] text-outline">Studio Admin</p>
+<p class="font-headline-sm text-[12px]">Producer Chen</p>
+</div>
+</div>
+<div class="text-on-surface-variant px-4 py-2 hover:text-primary cursor-pointer flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span class="font-label-caps text-label-caps">Help Center</span>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0 bg-background ink-wash-bg overflow-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-container-padding h-16 border-b border-outline-variant bg-surface-container shadow-sm z-40">
+<div class="flex items-center gap-8">
+<h2 class="font-headline-sm text-headline-sm font-semibold text-on-surface">Asset Review Dashboard</h2>
+<nav class="hidden lg:flex items-center gap-6">
+<span class="text-secondary font-bold font-label-caps text-label-caps cursor-pointer">Project Status</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary cursor-pointer transition-all">Resource Allocation</span>
+<span class="text-on-surface-variant font-label-caps text-label-caps hover:text-primary cursor-pointer transition-all">Cost Analysis</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-4 py-2 border border-secondary text-secondary rounded font-label-caps text-label-caps hover:bg-secondary/10 transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="summarize">summarize</span>
+                    Report Generation
+                </button>
+<button class="px-4 py-2 bg-primary-container text-white rounded font-label-caps text-label-caps hover:opacity-90 transition-opacity flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]" data-icon="movie">movie</span>
+                    Export Final Cut
+                </button>
+<div class="flex items-center gap-2 ml-4">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary" data-icon="settings">settings</span>
+</div>
+</div>
+</header>
+<!-- Readiness Bar -->
+<div class="bg-surface-container-low px-container-padding py-3 flex items-center justify-between border-b border-outline-variant/30">
+<div class="flex items-center gap-6">
+<div>
+<p class="font-label-caps text-[10px] text-outline-variant mb-0.5">PROJECT</p>
+<p class="font-body-base text-secondary font-semibold">Wu Song Character Intro</p>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20"></div>
+<div>
+<p class="font-label-caps text-[10px] text-outline-variant mb-0.5">READY</p>
+<div class="flex items-center gap-2">
+<div class="w-24 h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 92%"></div>
+</div>
+<span class="font-data-numeric text-data-numeric text-secondary">92%</span>
+</div>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/20"></div>
+<div>
+<p class="font-label-caps text-[10px] text-outline-variant mb-0.5">EST. DURATION</p>
+<p class="font-data-numeric text-data-numeric">0:45 <span class="text-outline text-[11px]">(6 Shots)</span></p>
+</div>
+</div>
+<div>
+<p class="font-label-caps text-[10px] text-outline-variant text-right mb-0.5">TOTAL COST</p>
+<p class="font-data-numeric text-headline-sm text-secondary">¥ 28,547.65</p>
+</div>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<!-- Left Filter Panel -->
+<aside class="w-64 border-r border-outline-variant/30 bg-surface-dim p-4 overflow-y-auto custom-scrollbar">
+<section class="space-y-6">
+<div>
+<h4 class="font-label-caps text-label-caps text-primary mb-4 border-b border-outline-variant/30 pb-1">ASSET TYPES</h4>
+<div class="grid grid-cols-2 gap-2">
+<div class="p-2 bg-surface-container-high rounded border border-secondary text-secondary text-center cursor-pointer">
+<span class="material-symbols-outlined text-[20px] block mb-1" data-icon="image">image</span>
+<span class="text-[10px] font-label-caps">Images</span>
+</div>
+<div class="p-2 bg-surface-container border border-outline-variant/30 rounded text-outline text-center cursor-pointer hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px] block mb-1" data-icon="video_library">video_library</span>
+<span class="text-[10px] font-label-caps">Videos</span>
+</div>
+<div class="p-2 bg-surface-container border border-outline-variant/30 rounded text-outline text-center cursor-pointer hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px] block mb-1" data-icon="audiotrack">audiotrack</span>
+<span class="text-[10px] font-label-caps">Audio</span>
+</div>
+<div class="p-2 bg-surface-container border border-outline-variant/30 rounded text-outline text-center cursor-pointer hover:border-primary/50">
+<span class="material-symbols-outlined text-[20px] block mb-1" data-icon="closed_caption">closed_caption</span>
+<span class="text-[10px] font-label-caps">Captions</span>
+</div>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-outline-variant mb-4">APPROVAL STATUS</h4>
+<div class="space-y-2">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-4 h-4 rounded-sm border border-tertiary bg-tertiary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="check">check</span>
+</div>
+<span class="text-body-sm group-hover:text-tertiary">Accepted (45)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-4 h-4 rounded-sm border border-secondary bg-secondary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-secondary" data-icon="pending">pending</span>
+</div>
+<span class="text-body-sm group-hover:text-secondary">Candidates (18)</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="w-4 h-4 rounded-sm border border-primary bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="close">close</span>
+</div>
+<span class="text-body-sm group-hover:text-primary">Rejected (12)</span>
+</label>
+</div>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps text-outline-variant mb-4">REJECTION REASONS</h4>
+<div class="space-y-2">
+<div class="px-3 py-1.5 bg-surface-container rounded text-[12px] text-on-surface-variant flex justify-between items-center cursor-pointer hover:bg-surface-container-high">
+<span>Character Inconsistent</span>
+<span class="text-primary font-data-numeric">5</span>
+</div>
+<div class="px-3 py-1.5 bg-surface-container rounded text-[12px] text-on-surface-variant flex justify-between items-center cursor-pointer hover:bg-surface-container-high">
+<span>Makeup Error</span>
+<span class="text-primary font-data-numeric">3</span>
+</div>
+<div class="px-3 py-1.5 bg-surface-container rounded text-[12px] text-on-surface-variant flex justify-between items-center cursor-pointer hover:bg-surface-container-high">
+<span>Movement Distortion</span>
+<span class="text-primary font-data-numeric">2</span>
+</div>
+</div>
+</div>
+</section>
+</aside>
+<!-- Central Grid & Preview -->
+<div class="flex-1 flex overflow-hidden">
+<div class="flex-1 flex flex-col p-6 overflow-y-auto custom-scrollbar">
+<div class="mb-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-primary font-headline-sm">Shot 01</span>
+<span class="text-on-surface/50 text-[14px]">00:00 - 00:05</span>
+<h3 class="font-headline-sm">Wind and Cloud Rise (水泊风云起)</h3>
+</div>
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-container rounded text-outline-variant"><span class="material-symbols-outlined" data-icon="filter_list">filter_list</span></button>
+<button class="p-2 hover:bg-surface-container rounded text-outline-variant"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
+</div>
+</div>
+<div class="space-y-8">
+<!-- Image Grid -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-[20px] text-outline-variant" data-icon="image">image</span>
+<h4 class="font-label-caps text-label-caps text-outline-variant">IMAGE CANDIDATES (6)</h4>
+</div>
+<div class="grid grid-cols-3 gap-3">
+<div class="aspect-square bg-surface-container rounded relative overflow-hidden group border border-tertiary">
+<img class="w-full h-full object-cover" data-alt="A cinematic medium shot of a legendary Chinese warrior Wu Song, dressed in traditional rough hemp clothes with a red headband. He stands in a dynamic martial arts pose amidst a swirling mist in a dark mountain pass. The lighting is dramatic, high-contrast chiaroscuro, highlighting his intense facial expression and the cinnabar red details of his attire against the deep ink-black shadows." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi1oqaJ8yrUrXY_cqVYyPK4_KRiC4MX8YpmsFDUZ-XLP6D0m3FwpozQwy9u_r5vL8HwLebv-XR-B7Dp_g27rQUOgU94DBX9pKupWHX7LuL_8UW_3DJrOGyv_tC30jUk7BJ66YQM476CLGRndFVWBmDQGVaSV2OP24BTIlY_2jNuDf5rO2Qs_mMDTgdscdd9SYsl7RN9ThHld8xT4LtT4L6JNSBohNnUMpvDgFxb6Qn8e7P2d2l48x5GcTENn-sSMkdkXnTUV4M8HtC"/>
+<div class="absolute inset-0 bg-tertiary/10 flex items-start justify-end p-2">
+<span class="bg-tertiary text-on-tertiary rounded-full p-0.5"><span class="material-symbols-outlined text-[14px]" data-icon="check" style="font-variation-settings: 'FILL' 1;">check</span></span>
+</div>
+</div>
+<div class="aspect-square bg-surface-container rounded relative overflow-hidden group border border-outline-variant/30">
+<img class="w-full h-full object-cover opacity-60" data-alt="A detailed close-up of a theatrical makeup mask for a traditional Chinese Yingge drama performer, featuring bold cinnabar red and jet black patterns on a pale white base. The mask depicts a heroic character with fierce eyes. The style is hyper-realistic with visible paint texture and fine brushstrokes, set against a dark, moody background of ancient wooden architecture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjFq48rGhwpHO4h3LgUeMlREvFEtj87S7DuYnXiQVm-IwGcJHXUknbwhuw-ELG5PVoZ2_mcd92frcZwVviqvdeoMng-ynHjcWo-jrOXHnALhzKq-LJKowEE7rqgJec5brwgJC4zgV00LRn0hz-m4aqe-JC51r9jvNrmiAe-ec9VUNakaQ2EIeH8Ve1ZcKQJnWO_NLUWFRCSh1IeSTq1VkVXy5_ipcZBHM-nNw-qWO_xAHsArqJpljTDt5e9zf4SxWbfidvPcck_ahU"/>
+<div class="absolute inset-0 bg-primary/10 flex items-start justify-end p-2">
+<span class="bg-primary text-on-primary rounded-full p-0.5"><span class="material-symbols-outlined text-[14px]" data-icon="close" style="font-variation-settings: 'FILL' 1;">close</span></span>
+</div>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A landscape shot of a misty mountain peak at dawn, inspired by traditional Chinese ink-wash painting. Sparse, gnarled pine trees cling to rocky cliffs. The atmosphere is heavy with fog, with subtle hints of gold sunlight breaking through the clouds. The composition is balanced and serene, reflecting a high-performance cinematic aesthetic with immense computational depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC01n_tQSdtXD-gHPhd0OOpyIw-K2B-cepQWSueBtTu65QMrqggXt0dqnKS9Q5kABFvaYGUuefEqHLxM1FbX5KsTpyT1ez_VebRUSfvGwHwmvfIuVmLLWYHbTv1FGLUWliosHUDSDu-g_cogLGgG2jrvlm8cfrvx3hvRPs9YG1u1b-VBscKKYX3Bw5g0gE2cj6-KvNvphfyhylc_Wdr5icucGl6s_iLRsCRr0BLgh0yuqqxFINfxlTRCP5QpHoWeKQa7nJYNzgqOXcp"/>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A cinematic production still showing an old wooden tavern interior with high-density detail. Wooden beams are weathered, and a single red lantern casts a warm, flickering glow across the room. Dust motes dance in shafts of moonlight. The style is dark and atmospheric, mimicking the depth of liquid ink with organic textures and professional prestige." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfOUFgloFbAl0mgGtutrlecshY40DEx7tfY2le5DalyT8laqpQz0e5agMuJplSicMwACNJ269Ov-RgReHHV1qBNMxLb-FXx-ZjuxfISMTAFVoWh-8hex8Wh-ipDLNAL7-KfwD5HA1KPtx6KlHL8Wtj4-knyGePns2IKn96O2lixGZA-6lkSx3jngLlHGSDQ32W_8sQZEQZmAyyVANNmxAp9-gHJEFLa7ex3kCY5B0nE6H22WJ_SZ_sqkxwfX8NiGQGydhNUX2-wx4W"/>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="An abstract visual of swirling red and black smoke, representing the primal energy of a traditional Yingge dance. The patterns are fluid and organic, reminiscent of high-end liquid ink physics simulations. The contrast is sharp, with intense cinnabar red highlights glowing against a void-like black background, evoking power and ancient storytelling." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6wYVuSkTIM1yPvGhKaV5Z_Otv5zi1kUafDmHwBK1Fc2gTrNOXvh0IVb8kRxN_xLJknUiNCuiCoPfrHXJuQzsY5imQ6JXHbg-PY3vB4Nj7EMO1xJt2QZQzilLvBMXbSDH6rHcSHaC6k5yVFoixQPg8yt6A8QK5Dk2VfwqlpAeEPpoeSTShfe40OG2-tRG9cHIr-rxdkbupLWGGyQjq4DKs1pLiASmRU23iDipBQOypPshJ4DVsHv0TjcZfnxyS8qgAjr1ISOoS5NHD"/>
+</div>
+<div class="aspect-square bg-surface-container rounded overflow-hidden border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A low-angle shot of a traditional Chinese weapon, a wooden staff with iron bindings, leaning against a weathered stone wall. The textures of the wood grain and pitted iron are highly detailed. Soft, directional lighting highlights the silhouette of the weapon, creating a sense of impending action and historical weight in a cinematic studio setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDB5BOnmRg1NWpz27Ipi-4FMmL71gNxRAaZ7rNBdxlTa0zFTTYk0RMoTgBYJ57wPgfA_I2FtjNUrGZwN1rBgdxuzB79Zs4WiMwOJvbcjaMUj059vvfIcNJxm4Z2q_c0c2V0KWZK_Kxmldn-5V1DTy-1wQ4hBMpMtXCteugrcad9nR_67xkDEU9NHb4caSYGCmSIo5yafbfY5S4hwhbWiyNN25di1hxPlW-f-6s-rRkLVtOh0ZZWxHEiben6KUQyl1telwwjemD-MOwX"/>
+</div>
+</div>
+</section>
+<!-- Video Grid -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-[20px] text-outline-variant" data-icon="video_library">video_library</span>
+<h4 class="font-label-caps text-label-caps text-outline-variant">VIDEO VERSIONS (4)</h4>
+</div>
+<div class="grid grid-cols-2 gap-3">
+<div class="aspect-video bg-surface-container rounded relative overflow-hidden group border-2 border-secondary">
+<img class="w-full h-full object-cover" data-alt="A video thumbnail featuring the hero Wu Song in full Yingge costume, performing a rapid sequence of martial arts strikes. The movement is fluid with slight motion blur to emphasize speed. The setting is a dark, atmospheric forest at night. Cinnabar red accents on his costume create streaks of color against the deep charcoal shadows. High-performance AI generation quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9OXn_6VK59aZW03yA4iZK8zegtwQe5tRbEDvi5PDKaE_8ycrymCZm5V-eamTGLQ0lIza1KEbqp0EU0pTp2HxArA9O0U5Dbuykrjg_2ccWDINXJpooLsFGnFOIzmJ4RrFsroaJJsi4Vucq9orXJRdTcCgr23qdOkkmYIHcqcRVc3SegFQKTLSKB5XQsDbKAAbJS7_2LIwLeYHW3oqIS5dcMjYf6q6d4F7Yq1IXZNN7GELXmvARaJQcCAKxh1sVSUSz4siRJMSwbDe8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-3">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-label-caps text-secondary bg-secondary/10 px-2 py-0.5 rounded">ACCEPTED</span>
+<span class="text-[10px] font-data-numeric">00:05</span>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-[48px] text-white" data-icon="play_circle">play_circle</span>
+</div>
+</div>
+<div class="aspect-video bg-surface-container rounded relative overflow-hidden group border border-outline-variant/30">
+<img class="w-full h-full object-cover" data-alt="A video thumbnail showing a dramatic close-up of a hand gripping a staff, with tension in the muscles. The background is a blur of red and black banners. The lighting is harsh and theatrical, reminiscent of a stage performance. The color palette is dominated by deep ink blacks and rich gold leaf highlights on the staff's ornaments." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAiF0nkyEca9IyARhuklduw2s2YYdgr9q-oxbFbrrjHx6nZmRo8Tzye9ghY4_cvZJesRq_ecAGepc_m0Jf1IntEoq4if4qsHSdF6-FKmNzVYzap1ZdGjBaosgIFIHogi2o1H8h4z7tOTGf2KzUOR8lX8uBtYhqVxkwrPNPJZ2Gp5QayksaGusnr-g_iF4WT6eqmP47DgES2OMm5qleHU93KfXbqLiQ78N-mxHeaB4hOaW7aj3DmdmC9ijWza9hIWukm5TJe6e9V5Za"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-3">
+<div class="flex justify-between items-center">
+<span class="text-[10px] font-label-caps text-outline">CANDIDATE V2</span>
+<span class="text-[10px] font-data-numeric">00:05</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Audio Tracks -->
+<section>
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-[20px] text-outline-variant" data-icon="audiotrack">audiotrack</span>
+<h4 class="font-label-caps text-label-caps text-outline-variant">AUDIO STEMS (2)</h4>
+</div>
+<div class="space-y-2">
+<div class="p-3 bg-surface-container rounded border border-tertiary flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary" data-icon="play_arrow">play_arrow</span>
+<div class="flex-1 flex gap-0.5 items-end h-6">
+<div class="w-1 h-3 bg-tertiary"></div><div class="w-1 h-5 bg-tertiary"></div><div class="w-1 h-2 bg-tertiary"></div><div class="w-1 h-6 bg-tertiary"></div><div class="w-1 h-4 bg-tertiary"></div><div class="w-1 h-5 bg-tertiary"></div><div class="w-1 h-3 bg-tertiary"></div><div class="w-1 h-6 bg-tertiary"></div><div class="w-1 h-5 bg-tertiary"></div><div class="w-1 h-2 bg-tertiary"></div><div class="w-1 h-4 bg-tertiary"></div><div class="w-1 h-3 bg-tertiary"></div><div class="w-1 h-5 bg-tertiary"></div><div class="w-1 h-6 bg-tertiary"></div><div class="w-1 h-4 bg-tertiary"></div><div class="w-1 h-3 bg-tertiary"></div><div class="w-1 h-2 bg-tertiary"></div><div class="w-1 h-6 bg-tertiary"></div><div class="w-1 h-4 bg-tertiary"></div><div class="w-1 h-5 bg-tertiary"></div>
+</div>
+<span class="text-[11px] font-label-caps text-tertiary">MASTER_THEME_V1.wav</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+<!-- Right Preview Sidebar -->
+<aside class="w-[480px] bg-surface-container border-l border-outline-variant/30 flex flex-col">
+<div class="p-6 flex-1 overflow-y-auto custom-scrollbar">
+<!-- Video Player -->
+<div class="aspect-[9/16] bg-black rounded-xl overflow-hidden mb-6 relative border border-outline-variant/50">
+<img class="w-full h-full object-cover" data-alt="A full portrait shot of the character Wu Song in cinematic 9:16 vertical format. He is captured in a mid-action pose, holding a heavy wooden staff. His face is painted with traditional Yingge makeup in sharp cinnabar red and black. The lighting is moody and directional, casting long shadows. Background features a stylized temple courtyard in a dark, ink-wash style with organic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkU4Jzx0W-6GyRO-ZawVQHGDb7AkugeMb8EsdWLDNWyTczXax8MPzJV0z-pB8zqXef2Yi3tdEtKuc3njOWKmQ9WE-hGyFxNpMyOX3KUKAhaSQXNC3TgJgSDrKlBOsOuWLJIj6xBJO0zHe2ByHZX7URcWM2PQ3Nr5n_qDpqdTOgDxViDoLhzbwXUZWi_OnU-BPtOGruLIrrFXOxT7o9owKpL_ZzjNYpRaK4WXpnnCmkGnliWMWxw_gthAm8VfVPmkDqs4aTLJUVLOVW"/>
+<div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
+<div class="flex items-center justify-between text-white mb-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined cursor-pointer" data-icon="play_arrow" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+<span class="font-data-numeric text-[12px]">00:02 / 00:05</span>
+</div>
+<span class="material-symbols-outlined cursor-pointer" data-icon="fullscreen">fullscreen</span>
+</div>
+<div class="w-full h-1 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[40%]"></div>
+</div>
+</div>
+</div>
+<!-- Metadata Grid -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-dim p-3 rounded border border-outline-variant/20">
+<p class="text-[10px] font-label-caps text-outline mb-1">AI MODEL</p>
+<p class="text-body-sm font-semibold">Seedance 2.0 PRO</p>
+</div>
+<div class="bg-surface-dim p-3 rounded border border-outline-variant/20">
+<p class="text-[10px] font-label-caps text-outline mb-1">RESOLUTION</p>
+<p class="text-body-sm font-semibold">1080P 9:16</p>
+</div>
+<div class="bg-surface-dim p-3 rounded border border-outline-variant/20">
+<p class="text-[10px] font-label-caps text-outline mb-1">EST. COST</p>
+<p class="text-secondary font-data-numeric">¥ 1.42</p>
+</div>
+<div class="bg-surface-dim p-3 rounded border border-outline-variant/20">
+<p class="text-[10px] font-label-caps text-outline mb-1">STATUS</p>
+<p class="text-tertiary text-body-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                    ACCEPTED
+                                </p>
+</div>
+</div>
+<!-- Reflection & Insights -->
+<div class="space-y-6">
+<h4 class="font-headline-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="psychology">psychology</span>
+                                Reflection &amp; Insights
+                            </h4>
+<div class="space-y-4">
+<div class="p-4 bg-surface-container-high rounded-xl border-l-4 border-secondary">
+<h5 class="text-[12px] font-bold text-secondary mb-2 uppercase tracking-wider">Model Failure Modes</h5>
+<div class="space-y-3">
+<div>
+<p class="text-body-sm text-on-surface flex justify-between">
+<span>Seedance 2.0 PRO</span>
+<span class="text-primary text-[10px] font-label-caps">Jitter Issues</span>
+</p>
+<div class="w-full h-1 bg-surface-dim mt-1.5 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[35%]"></div>
+</div>
+</div>
+<div>
+<p class="text-body-sm text-on-surface flex justify-between">
+<span>GPT-Image-2</span>
+<span class="text-secondary text-[10px] font-label-caps">Detail Loss</span>
+</p>
+<div class="w-full h-1 bg-surface-dim mt-1.5 rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[20%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-high rounded-xl">
+<h5 class="text-[12px] font-bold text-primary mb-3 uppercase tracking-wider">Prompt Optimization Suggestions</h5>
+<ul class="space-y-2 text-body-sm text-on-surface-variant">
+<li class="flex gap-2">
+<span class="text-primary">•</span>
+                                            Add more texture detail to hemp garments
+                                        </li>
+<li class="flex gap-2">
+<span class="text-primary">•</span>
+                                            Focus on cinnabar red facial symmetry
+                                        </li>
+</ul>
+</div>
+<div class="p-4 bg-surface-container-high rounded-xl border border-primary/20">
+<div class="flex items-center justify-between mb-3">
+<h5 class="text-[12px] font-bold text-primary uppercase tracking-wider">Risk Alert</h5>
+<span class="text-primary font-data-numeric">71%</span>
+</div>
+<div class="w-full h-2 bg-surface-dim rounded-full overflow-hidden mb-2">
+<div class="h-full bg-primary w-[71%]"></div>
+</div>
+<p class="text-[11px] text-on-surface-variant italic">Budget usage is nearing critical threshold for this project phase.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-6 bg-surface-container-high border-t border-outline-variant/30">
+<button class="w-full py-3 bg-secondary text-on-secondary-container rounded font-bold hover:opacity-90 transition-opacity">
+                            FINAL PRODUCTION HANDOFF
+                        </button>
+</div>
+</aside>
+</div>
+</div>
+<!-- Bottom Timeline Rail -->
+<footer class="h-32 border-t border-outline-variant bg-surface-container flex items-center px-container-padding gap-3 overflow-x-auto custom-scrollbar">
+<div class="flex-shrink-0 mr-4">
+<p class="font-label-caps text-[10px] text-outline mb-1 uppercase">Production Rail</p>
+<p class="font-headline-sm text-[14px]">6 Shots / 45s</p>
+</div>
+<!-- Shot 01 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border-2 border-secondary relative overflow-hidden group flex-shrink-0 cursor-pointer">
+<img class="w-full h-full object-cover" data-alt="A small thumbnail representing the first cinematic shot of the production, showing the main character in a dramatic martial arts pose against a dark, misty background. The thumbnail is framed in gold, indicating it is the currently selected and accepted version for the final cut." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4B9wcySP0Swinr6rsdZAXOWjswEmI9A5FEEn8MrBlqscHKHcsP71vD5Ew1RyylnRTDFNUhtpEFb5DDlCzTetbhT7l1zZexwx2xo3EfrwtJ3PdEW717HjSuBzUs89Ms918XaZo-uhPKlbiSLZfFTcoWPsUx0K6DV88O0Jy0z9UcUg5iGARq8FghKYym_km-yucVYHdqz1ojb_CkNDrWJUJEJGwJMq4qt7L8zERq2o3fsrPbD6oJA5w1F19-dT0IHG60pCTJektpA5d"/>
+<div class="absolute top-1 left-1 bg-secondary text-black text-[9px] px-1 font-bold rounded-sm">S01</div>
+<div class="absolute bottom-1 right-1 flex gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="music_note">music_note</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="subtitles">subtitles</span>
+</div>
+</div>
+<!-- Shot 02 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-secondary/50">
+<img class="w-full h-full object-cover" data-alt="A small thumbnail for the second cinematic shot, capturing a close-up of the character's hand gripping a staff. The lighting is focused and theatrical, highlighting the textures of the wood and the cinnabar red fabric in the background. The mood is tense and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCosUsatd8463caoYgZ7P_O9nLzCmGFn1Z74ahzouuVeSl78mVtVuJKAAxe0C3Uc9tM0cKLAmVNkRC7RVxnQl7N9nA7A6G_fhiYH3CANRFBtgWDtEBUV4lGeuL1aG1zO_xW-tW-u8nxaVRbcbjSH48t3qKtlOjSQ73J1cpe1nUt50O5BFud2s1rIEUQZwJbVMvQLp-rmm6wNV31g2FrX7OrymRE5VUntlAPiTsjVpMarZ4rgNJaZcc0ShqIjzQhfZW70CubFLVL-NF6"/>
+<div class="absolute top-1 left-1 bg-surface-container-highest text-on-surface-variant text-[9px] px-1 font-bold rounded-sm">S02</div>
+<div class="absolute bottom-1 right-1 flex gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="videocam">videocam</span>
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="music_note">music_note</span>
+</div>
+</div>
+<!-- Shot 03 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden flex-shrink-0 cursor-pointer hover:border-secondary/50">
+<img class="w-full h-full object-cover" data-alt="A small thumbnail for the third cinematic shot, showing a landscape view of a misty mountain pass with dark, ink-wash aesthetics. Subtle rays of golden morning light break through the clouds, illuminating the path the character will take. High-performance AI artistry." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhVzYDgBHre0SkScH4kGqcUMMhTyN99y3CNyz9KOsdBj2URbjJx9mxZ2ddshD6XbC2GkI0HZdVym7PJreHXvFldm0rAMEhQakBiPkMeQyveB2tg3p9-IzOZwAyRriD-uggnBmBx_-0sZT9QzPPldTkTnfUk97AW_fMvdKAMauQJYiG0CkbdmBpIRxfOoNj2sXNuN61tK7TrhB-lPePl8xxOOyqRHQnCxjSyuFBJ9g1bC6gpbVS6OSvFwi4nQeq01hCWEiIoG6IW3em"/>
+<div class="absolute top-1 left-1 bg-surface-container-highest text-on-surface-variant text-[9px] px-1 font-bold rounded-sm">S03</div>
+<div class="absolute bottom-1 right-1 flex gap-1">
+<span class="material-symbols-outlined text-[12px] text-tertiary" data-icon="videocam">videocam</span>
+</div>
+</div>
+<!-- Shot 04 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden flex-shrink-0 cursor-pointer opacity-50">
+<div class="w-full h-full flex items-center justify-center bg-surface-dim">
+<span class="material-symbols-outlined text-outline-variant" data-icon="pending">pending</span>
+</div>
+<div class="absolute top-1 left-1 bg-surface-container-highest text-on-surface-variant text-[9px] px-1 font-bold rounded-sm">S04</div>
+</div>
+<!-- Shot 05 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden flex-shrink-0 cursor-pointer opacity-50">
+<div class="w-full h-full flex items-center justify-center bg-surface-dim">
+<span class="material-symbols-outlined text-outline-variant" data-icon="pending">pending</span>
+</div>
+<div class="absolute top-1 left-1 bg-surface-container-highest text-on-surface-variant text-[9px] px-1 font-bold rounded-sm">S05</div>
+</div>
+<!-- Shot 06 -->
+<div class="h-20 w-36 bg-surface-container-high rounded border border-outline-variant relative overflow-hidden flex-shrink-0 cursor-pointer opacity-50">
+<div class="w-full h-full flex items-center justify-center bg-surface-dim">
+<span class="material-symbols-outlined text-outline-variant" data-icon="pending">pending</span>
+</div>
+<div class="absolute top-1 left-1 bg-surface-container-highest text-on-surface-variant text-[9px] px-1 font-bold rounded-sm">S06</div>
+</div>
+</footer>
+</main>
+</body></html>
